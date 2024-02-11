@@ -1,0 +1,145 @@
+body {
+    background-color: #0d1E40;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    padding: 1em;
+    margin: 2em auto;
+    /* margin-left: auto; */
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+
+/* Shooting Star animation */
+.shoot-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-size: cover;
+}
+
+span {
+    position: absolute;
+    top:50%;
+    left:50%;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.1),0 0 0 8px rgba(255,255,255,0.1),0 0 20px rgba(255,255,255,0.1);
+    animation: animate 5s linear infinite;
+    z-index: -1;
+}
+
+@media (prefers-reduced-motion) {
+    span {
+        animation: none;
+    }
+}
+
+span::before {
+    content:'';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg,#fff,transparent);
+}
+@keyframes animate
+{
+    0%
+    {
+        transform: rotate(315deg) translateX(0);
+        opacity: 1;
+    }
+    70%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        transform: rotate(315deg) translateX(-1000px);
+        opacity: 0;
+    }
+}
+span:nth-child(1) {
+    top: 0;
+    right: -20%;
+    left: initial;
+    animation-delay: 7s;
+    animation-duration: 2s;
+}
+span:nth-child(2) {
+    top: 0;
+    right: 30%;
+    left: initial;
+    animation-delay: 5s;
+    animation-duration: 1.5s;
+}
+span:nth-child(3) {
+    top: 0px;
+    right: 80%;
+    left: initial;
+    animation-delay: 6s;
+    animation-duration: 2.45s;
+}
+
+
+/* Toggle Menu */
+.toggle-menu {
+    margin: 1em auto 2em auto;
+    display: flex;
+    justify-content: center;
+}
+
+.toggle-table, .toggle-map {
+    padding: 1em;
+}
+
+.toggle-table {
+    background-color: #265D73;
+}
+
+.toggle-map {
+    background-color: #265D7330;
+}
+
+
+/* Table */
+#meteorite-table {
+    margin: 1em auto;
+    overflow: scroll;
+    background-color: #0d1E40;
+    border: .25em #328c8c70 outset;
+}
+
+#meteorite-table thead{
+    width: 100%;
+    display: inline-table;
+    background-color: #328c8c;
+}
+
+#meteorite-table tbody {
+    display: block;
+    overflow: scroll;
+    max-height: 250px;
+}
+
+#meteorite-table td {
+    padding: .5em;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #265d7355;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #265d7330;
+}
+

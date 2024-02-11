@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href=".">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Macy Whitney">
@@ -16,15 +17,41 @@
 </head>
 <body>
     <header>
-
+        <section class="shoot-animation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </section>
+        <h1>Meteorite Landings</h1>
     </header>
     <main>
-
+        <section class="toggle-menu">
+            <div class="toggle-table">Table</div>
+            <div class="toggle-map">Map</div>
+        </section>
+        <table id="meteorite-table">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Name</th>
+                <th>Mass (g)</th>
+                <th>Classification</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr >
+                <td>1994</td>
+                <td>My name</td>
+                <td>234243 kg</td>
+                <td>big</td>
+              </tr>
+            </tbody>
+          </table>
     </main>
     <footer>
 
     </footer>
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
     <script src="js/map.js"></script>
     <script src="js/search.js"></script>
 </body>

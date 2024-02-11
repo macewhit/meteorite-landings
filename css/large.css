@@ -1,0 +1,13 @@
+@media only screen and (min-width: 32.5em) {
+    h1 {
+        font-size: 5em;
+    }
+
+/* Table */
+    #meteorite-table tbody {
+        max-height: 500px;
+    }
+    #meteorite-table tr td:nth-child(2) {
+        padding: 1.25em;
+    }
+}
