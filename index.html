@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link href="css/base.css" rel="stylesheet">
     <link href="css/large.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -18,41 +21,57 @@
 <body>
     <header>
         <section class="shoot-animation">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span id="meteorAnimate"></span>
+            <span id="meteorAnimate"></span>
+            <span id="meteorAnimate"></span>
         </section>
         <h1>Meteorite Landings</h1>
     </header>
     <main>
         <section class="toggle-menu">
-            <div class="toggle-table">Table</div>
-            <div class="toggle-map">Map</div>
+            <div id="toggle-table" class="menu-item active">Table</div>
+            <div id="toggle-map" class="menu-item">Map</div>
+            <div id="toggle-chart" class="menu-item">Chart</div>
         </section>
         <table id="meteorite-table">
             <thead>
               <tr>
-                <th>Year</th>
-                <th>Name</th>
-                <th>Mass (g)</th>
-                <th>Classification</th>
+                <th data-toggle="year" class="sort-toggle">Year</th>
+                <th data-toggle="name" class="sort-toggle ascending">Name</th>
+                <th data-toggle="mass" class="sort-toggle">Mass (g)</th>
+                <th data-toggle="recclass" class="sort-toggle">Classification</th>
               </tr>
             </thead>
             <tbody>
               <tr >
-                <td>1994</td>
-                <td>My name</td>
+                <td>Year</td>
+                <td>Name</td>
                 <td>234243 kg</td>
-                <td>big</td>
+                <td>Classification</td>
               </tr>
             </tbody>
           </table>
+          <div id="map-container" class="hidden">
+            <div id="map"></div>
+          </div>
+          <div id="meteorite-charts" class="hidden">
+            <div id="chart"> chart 1</div>
+          </div>
+
     </main>
     <footer>
-
+      <div class="copyright">
+        <p>Copyright &copy; <span id="currentyear"></span></p>
+        <p>Macy Whitney, BYU-Idaho, WDD 330</p>
+        <span id="lastupdated"></span>
+    </div>
     </footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin="">
+    </script>
     <script type="module" src="js/main.js"></script>
-    <script src="js/map.js"></script>
+    <!-- <script src="js/map.js"></script> -->
     <script src="js/search.js"></script>
 </body>
 </html>

@@ -1,10 +1,7 @@
-// import { getData } from "./main";
-
-
-
 export class TableData {
-    constructor(data) {
+    constructor(data, sortFunc=null) {
         this.data = data
+        this.sortFunc = sortFunc
     }
     async init() {
         this.loadTableData(this.data);
@@ -23,6 +20,9 @@ export class TableData {
     }
     loadTableData(list) {
         var table = document.querySelector("#meteorite-table > tbody");
+        if(this.sortFunc !== null) {
+            list = list.toSorted(this.sortFunc)
+        }
         const tbody = list.map(this.renderInfo).join("")
         table.innerHTML = tbody
     }

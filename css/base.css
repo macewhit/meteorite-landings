@@ -22,8 +22,7 @@ h1 {
     width: 100%;
     background-size: cover;
 }
-
-span {
+#meteorAnimate {
     position: absolute;
     top:50%;
     left:50%;
@@ -35,14 +34,7 @@ span {
     animation: animate 5s linear infinite;
     z-index: -1;
 }
-
-@media (prefers-reduced-motion) {
-    span {
-        animation: none;
-    }
-}
-
-span::before {
+#meteorAnimate::before {
     content:'';
     position: absolute;
     top: 50%;
@@ -68,21 +60,21 @@ span::before {
         opacity: 0;
     }
 }
-span:nth-child(1) {
+#meteorAnimate:nth-child(1) {
     top: 0;
     right: -20%;
     left: initial;
     animation-delay: 7s;
     animation-duration: 2s;
 }
-span:nth-child(2) {
+#meteorAnimate:nth-child(2) {
     top: 0;
     right: 30%;
     left: initial;
     animation-delay: 5s;
     animation-duration: 1.5s;
 }
-span:nth-child(3) {
+#meteorAnimate:nth-child(3) {
     top: 0px;
     right: 80%;
     left: initial;
@@ -97,17 +89,20 @@ span:nth-child(3) {
     display: flex;
     justify-content: center;
 }
-
-.toggle-table, .toggle-map {
+.menu-item {
     padding: 1em;
-}
-
-.toggle-table {
-    background-color: #265D73;
-}
-
-.toggle-map {
     background-color: #265D7330;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#toggle-map {border-radius: 0;}
+#toggle-chart {border-radius: 0px 10px 10px 0px;}
+#toggle-table {border-radius: 10px 0 0 10px;}
+
+.active {background-color: #265D73;}
+.menu-item:hover {
+    background-color: #265D7360;
+    text-decoration: underline double #AEEBF2 1px;
 }
 
 
@@ -131,15 +126,47 @@ span:nth-child(3) {
     max-height: 250px;
 }
 
-#meteorite-table td {
-    padding: .5em;
+#meteorite-table td {padding: .5em;}
+
+tbody tr:nth-child(even) {background-color: #265d7355;}
+
+tbody tr:nth-child(odd) {background-color: #265d7330;}
+
+/* Map */
+#map {height: 400px;}
+
+#map-container {
+    max-width: 768px;
+    margin: 0 auto;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #265d7355;
+/* Footer */
+footer {
+    margin: 0 auto;
+    text-align: center;
+}
+.hidden {display: none;}
+
+.copyright {
+    padding: 2em .5em;
+    font-size: small;}
+
+@media (prefers-reduced-motion) {
+    #meteorAnimate {animation: none;}
 }
 
-tbody tr:nth-child(odd) {
-    background-color: #265d7330;
+.ascending::after {
+    content: "▲";
+    font-size: smaller;
+    padding-left: 1em;
 }
 
+.decending::after {
+    content: "▼";
+    font-size: smaller;
+    padding-left: 1em;
+}
+
+.sort-toggle {
+    cursor: pointer;
+}
