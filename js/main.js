@@ -12,9 +12,9 @@ let map = null;
 let table = null;
 
 getData().then(data => {
-  table = new TableData(data)
-  table.init()
-  map = new Map(data)
+  table = new TableData(data);
+  table.init();
+  map = new Map(data);
 })
 
 // Date
@@ -29,7 +29,7 @@ const mapBtn = document.querySelector("#toggle-map");
 const tableBtn = document.querySelector("#toggle-table");
 const chartBtn = document.querySelector("#toggle-chart");
 
-const meteorTable = document.querySelector("#meteorite-table");
+const meteorTable = document.querySelector("#table-section");
 const meteorMap = document.querySelector("#map-container");
 const meteorChart = document.querySelector("#meteorite-charts");
 
@@ -42,7 +42,7 @@ mapBtn.addEventListener("click", () => {
   tableBtn.classList.remove("active");
   chartBtn.classList.remove("active");
   if(map !== null) {
-    map.init()
+    map.init();
   }
   });
 tableBtn.addEventListener("click", () => {
@@ -70,62 +70,37 @@ toggleBtns.forEach((btn) => {
   btn.addEventListener("click", (event) => {
     if(btn.classList.contains("ascending") || btn.classList.contains("decending")) {
       if(btn.classList.contains("ascending")) {
-        btn.classList.remove("ascending")
-        btn.classList.add("decending")
+        btn.classList.remove("ascending");
+        btn.classList.add("decending");
       }
       else {
-        btn.classList.remove("decending")
-        btn.classList.add("ascending")
+        btn.classList.remove("decending");
+        btn.classList.add("ascending");
       }
     }
     else {
       toggleBtns.forEach((otherBtn) => {
-        otherBtn.classList.remove("ascending", "decending")
+        otherBtn.classList.remove("ascending", "decending");
       })
-      btn.classList.add("ascending")
+      btn.classList.add("ascending");
     }
-    const dataToggle = btn.getAttribute("data-toggle")
-    if(btn.classList.contains("ascending")) {
+    const dataToggle = btn.getAttribute("data-toggle");
+    if(btn.classList.contains("ascending")) {;
       table.sortFunc = (a, b) => {
-        return a[dataToggle] > b[dataToggle]
+        return a[dataToggle] > b[dataToggle];
       }
     }
     else {
       table.sortFunc = (a, b) => {
-        return a[dataToggle] < b[dataToggle]
+        return a[dataToggle] < b[dataToggle];
       }
     }
-    table.init()
+    table.init();
   })
 })
 
-const yearToggle = document.querySelector("#year-toggle")
-
-yearToggle.addEventListener("click", () => {
-  if(table === null) {
-    return
-  }
-  if(yearToggle.classList.contains("ascending")) {
-    yearToggle.classList.remove("ascending")
-    yearToggle.classList.add("decending")
-    table.sortFunc = (a, b) => {
-      return a.year < b.year
-    }
-  }
-  else if(yearToggle.classList.contains("decending")) {
-    yearToggle.classList.remove("decending")
-    yearToggle.classList.add("ascending")
-    table.sortFunc = (a, b) => {
-      return a.year > b.year
-    }
-  }
-  else {
-    yearToggle.classList.remove("ascending")
-    yearToggle.classList.add("decending")
-    table.sortFunc = (a, b) => {
-      return a.year < b.year
-    }
-  }
-
+const searchBar = document.querySelector("#search-query");
+searchBar.addEventListener("input", (event) => {
+  table.searchQuery = searchBar.value
   table.init()
 })

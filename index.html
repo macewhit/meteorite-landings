@@ -31,33 +31,30 @@
         <section class="toggle-menu">
             <div id="toggle-table" class="menu-item active">Table</div>
             <div id="toggle-map" class="menu-item">Map</div>
-            <div id="toggle-chart" class="menu-item">Chart</div>
+            <div id="toggle-chart" class="menu-item">Charts</div>
         </section>
-        <table id="meteorite-table">
-            <thead>
-              <tr>
-                <th data-toggle="year" class="sort-toggle">Year</th>
-                <th data-toggle="name" class="sort-toggle ascending">Name</th>
-                <th data-toggle="mass" class="sort-toggle">Mass (g)</th>
-                <th data-toggle="recclass" class="sort-toggle">Classification</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr >
-                <td>Year</td>
-                <td>Name</td>
-                <td>234243 kg</td>
-                <td>Classification</td>
-              </tr>
-            </tbody>
-          </table>
-          <div id="map-container" class="hidden">
-            <div id="map"></div>
+        <div id="table-section">
+          <div id="search-bar">
+            <input type="text" id="search-query" placeholder="Search..."></input>
           </div>
-          <div id="meteorite-charts" class="hidden">
-            <div id="chart"> chart 1</div>
-          </div>
+          <div id="meteorite-table">
+            <div class="table-head">
+              <div class="table-header sort-toggle" data-toggle="year">Year</div>
+              <div class="table-header sort-toggle ascending" data-toggle="name">Name</div>
+              <div class="table-header sort-toggle" data-toggle="mass">Mass (g)</div>
+              <div class="table-header sort-toggle" data-toggle="recclass">Classification</div>
+            </div>
+            <div class="table-body">
 
+            </div>
+          </div>
+        </div>
+        <div id="map-container" class="hidden">
+          <div id="map"></div>
+        </div>
+        <div id="meteorite-charts" class="hidden">
+          <div id="chart"> chart 1</div>
+        </div>
     </main>
     <footer>
       <div class="copyright">
@@ -71,7 +68,5 @@
       crossorigin="">
     </script>
     <script type="module" src="js/main.js"></script>
-    <!-- <script src="js/map.js"></script> -->
-    <script src="js/search.js"></script>
 </body>
 </html>
