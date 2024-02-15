@@ -14,16 +14,23 @@ export class TableData {
         }
         let mass = ""
         if(typeof info.mass !== "undefined") {
-            mass = parseFloat(info.mass)
+            mass = parseFloat(info.mass);
             if(mass != Math.floor(mass)) {
                 mass = parseFloat(info.mass).toFixed(2);
             }
         }
+
+        let src = "images/heart_empty.svg";
+        if(info.liked) {
+            src = "images/heart_full.svg";
+        }
+
         return `<div class="table-row">
+        <div class="table-cell like-btn" data-name="${info.name}"><img src="${src}"></div>
         <div class="table-cell">${year}</div>
         <div class="table-cell">${info.name}</div>
-        <div class="table-cell">${mass}</div>
-        <div class="table-cell">${info.recclass}</div>
+        <div class="table-cell mobile-table">${mass}</div>
+        <div class="table-cell mobile-table">${info.recclass}</div>
         </div>
       `
     }
@@ -50,6 +57,36 @@ export class TableData {
             })
         }
         const tbody = list.map(this.renderInfo).join("");
+
         table.innerHTML = tbody;
+
+        const likeBtns = document.querySelectorAll(".like-btn");
+        likeBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const name = btn.getAttribute("data-name")
+                // 1. update this.data so that the entry with name toggles "like" (maybe with this.data.map)
+                this.data = this.data.map((meteor) => {
+                    if(meteor.name === name) {
+                        meteor.liked = !meteor.liked;
+                    }
+                    return meteor;
+                })
+                // 2. update the liked list in local storage
+                let liked = window.localStorage.getItem("liked") // grab from localstorage
+                if(liked === null) {
+                    liked = "[]";
+                }
+                liked = JSON.parse(liked);
+                const index = liked.indexOf(name);
+                if(index > -1) {
+                    liked.splice(name, 1);
+                }
+                else {
+                    liked.push(name);
+                }
+                localStorage.setItem("liked", JSON.stringify(liked));
+                this.init();
+            })
+        })
     }
 }

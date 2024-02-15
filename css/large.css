@@ -2,6 +2,7 @@
     h1 {font-size: 5em;}
 
 /* Table */
-    #meteorite-table tbody {max-height: 500px;}
-    #meteorite-table tr td:nth-child(2) {padding: 1.25em;}
+    #meteorite-table tbody {
+        max-height: 500px;
+    }
 }

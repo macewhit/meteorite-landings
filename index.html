@@ -39,10 +39,11 @@
           </div>
           <div id="meteorite-table">
             <div class="table-head">
+              <div class="table-header btn-header"></div>
               <div class="table-header sort-toggle" data-toggle="year">Year</div>
               <div class="table-header sort-toggle ascending" data-toggle="name">Name</div>
-              <div class="table-header sort-toggle" data-toggle="mass">Mass (g)</div>
-              <div class="table-header sort-toggle" data-toggle="recclass">Classification</div>
+              <div class="table-header sort-toggle mobile-table" data-toggle="mass">Mass (g)</div>
+              <div class="table-header sort-toggle mobile-table" data-toggle="recclass">Classification</div>
             </div>
             <div class="table-body">
 
@@ -53,20 +54,30 @@
           <div id="map"></div>
         </div>
         <div id="meteorite-charts" class="hidden">
-          <div id="chart"> chart 1</div>
+          <div><canvas id="classes"></canvas></div>
+          <div><canvas id="timeline"></canvas></div>
+          <div><canvas id="meteor-location"></canvas></div>
+          <div><canvas id="mass-line"></canvas></div>
+
+
         </div>
     </main>
     <footer>
+      <img src="/images/mountain_silhouette.svg"/>
       <div class="copyright">
         <p>Copyright &copy; <span id="currentyear"></span></p>
         <p>Macy Whitney, BYU-Idaho, WDD 330</p>
         <span id="lastupdated"></span>
     </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- <script type="module" src="https://unpkg.com/chart.js@4.2.1/dist/chart.umd.js" integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <!-- <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin="">
     </script>
+    <script type="module" src="js/charts.js"></script>
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

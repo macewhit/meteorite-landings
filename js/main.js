@@ -1,5 +1,6 @@
 import { TableData } from "./table.js";
 import { Map } from "./map.js";
+import Charts from "./charts.js";
 
 export async function getData() {
   const response = await fetch("https://data.nasa.gov/resource/gh4g-9sfh.json");
@@ -10,11 +11,31 @@ export async function getData() {
 
 let map = null;
 let table = null;
+let charts = null;
 
 getData().then(data => {
+  let liked = window.localStorage.getItem("liked");
+  if(liked === null) {
+    liked = "[]";
+  }
+  liked = JSON.parse(liked);
+  data = data.map((info) => {
+    info.liked = liked.includes(info.name);
+    return info;
+  })
+
   table = new TableData(data);
+
+  let query = localStorage.getItem("query")
+  if(query === null) {
+    query = ""
+  }
+  table.searchQuery = query;
+
   table.init();
   map = new Map(data);
+  charts = new Charts(data)
+  charts.init()
 })
 
 // Date
@@ -87,11 +108,17 @@ toggleBtns.forEach((btn) => {
     const dataToggle = btn.getAttribute("data-toggle");
     if(btn.classList.contains("ascending")) {;
       table.sortFunc = (a, b) => {
+        if(typeof a[dataToggle] !== "undefined" && typeof b[dataToggle] !== "undefined" && dataToggle === "mass") {
+          return parseFloat(a[dataToggle]) > parseFloat(b[dataToggle])
+        }
         return a[dataToggle] > b[dataToggle];
       }
     }
     else {
       table.sortFunc = (a, b) => {
+        if(typeof a[dataToggle] !== "undefined" && typeof b[dataToggle] !== "undefined" && dataToggle === "mass") {
+          return parseFloat(a[dataToggle]) < parseFloat(b[dataToggle])
+        }
         return a[dataToggle] < b[dataToggle];
       }
     }
@@ -102,5 +129,6 @@ toggleBtns.forEach((btn) => {
 const searchBar = document.querySelector("#search-query");
 searchBar.addEventListener("input", (event) => {
   table.searchQuery = searchBar.value
+  localStorage.setItem("query", searchBar.value)
   table.init()
 })

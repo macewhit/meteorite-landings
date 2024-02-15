@@ -3,8 +3,9 @@ body {
     color: white;
     font-family: 'Inter', sans-serif;
     padding: 1em;
-    margin: 2em auto;
+    margin: 0 auto;
     overflow-x: hidden;
+    padding-bottom: 0;
 }
 
 h1 {
@@ -127,7 +128,7 @@ h1 {
 
 .table-head {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: auto repeat(4, 1fr);
     padding-top: .5em;
     padding-bottom: .5em;
     background-color: #328c8c;
@@ -144,7 +145,19 @@ h1 {
 
 .table-row {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: auto repeat(4, 1fr);
+}
+
+.like-btn, .btn-header {
+    width: 32px;
+}
+
+.like-btn {
+    cursor: pointer;
+}
+
+.like-btn:hover {
+
 }
 
 .table-cell {
@@ -155,60 +168,53 @@ h1 {
 }
 
 
-
-/* Table */
-/* #meteorite-table {
-    margin: 1em auto;
-    overflow: scroll;
-    background-color: #0d1E40;
-    border: .25em #328c8c70 outset;
-    width: 100%;
-    max-width: 650px;
-    display: block;
-    max-height: 400px;
-} */
-
-/* #meteorite-table thead{
-    width: 100%;
-    padding-top: .5em;
-    padding-bottom: .5em;;
-    background-color: #328c8c;
-} */
-
-/* #meteroite-table thead tr {
-    width: 25%;
-} */
-
-/* #meteorite-table tbody {
-    overflow: scroll;
-    max-height: 250px;
-    width: 100%;
-} */
-
-/* #meteorite-table td {padding: .5em;} */
-
-/* tbody tr:nth-child(even) {background-color: #265d7355;}
-
-tbody tr:nth-child(odd) {background-color: #265d7330;} */
-
 /* Map */
 #map {height: 400px;}
 
 #map-container {
     max-width: 768px;
-    margin: 0 auto;
+    margin: 0 auto 2em auto;
+}
+
+/* Charts */
+#meteorite-charts {
+    display: grid;
+}
+canvas {
+    padding: 2em;
+    max-width: 600px
 }
 
 /* Footer */
 footer {
-    margin: 0 auto;
+    margin: 0;
     text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
 }
 .hidden {display: none;}
 
 .copyright {
+    grid-row: 1/2;
+    grid-column: 1/2;
     padding: 2em .5em;
-    font-size: x-small;}
+    font-size: x-small;
+    align-self: center;
+    text-shadow: 1px 1px 3px #0d1e40;
+}
+
+footer img {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    z-index: -1;
+    align-self: stretch;
+    max-height: 200px;
+    object-fit: cover;
+    object-position: bottom;
+    max-width: 768px;
+    justify-self: center;
+}
 
 @media (prefers-reduced-motion) {
     #meteorAnimate {animation: none;}
