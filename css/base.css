@@ -181,9 +181,6 @@ h1 {
     margin: 0 auto;
     max-width: 400px;
 }
-.timeline-chart {
-    overflow-x: scroll;
-}
 canvas {
     padding: 2em;
     max-width: 600px;
