@@ -155,9 +155,15 @@ h1 {
 .like-btn {
     cursor: pointer;
 }
+.like-btn img {
+    border-radius: 10px;
+}
 
-.like-btn:hover {
 
+.like-btn img:hover {
+    background: linear-gradient(145deg, #0d1e4050 24%, #328c8c50 54%, #265d7350 78%);
+    transition: .5s;
+    box-shadow: 1px 1px 10px #ffffff20;
 }
 
 .table-cell {
