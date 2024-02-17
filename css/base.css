@@ -194,6 +194,8 @@ footer {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
+    max-height: 200px;
+    overflow: hidden;
 }
 .hidden {display: none;}
 
@@ -211,7 +213,7 @@ footer img {
     grid-row: 1/2;
     z-index: -1;
     align-self: stretch;
-    max-height: 200px;
+    width: 100%;
     object-fit: cover;
     object-position: bottom;
     max-width: 768px;
