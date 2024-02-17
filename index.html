@@ -7,7 +7,7 @@
     <meta name="author" content="Macy Whitney">
     <title>Meteorite Landings</title>
     <meta name="description" content="The home page for the Meteorite Landing site">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link href="css/base.css" rel="stylesheet">
     <link href="css/large.css" rel="stylesheet">
@@ -54,16 +54,13 @@
           <div id="map"></div>
         </div>
         <div id="meteorite-charts" class="hidden">
-          <div><canvas id="classes"></canvas></div>
-          <div><canvas id="timeline"></canvas></div>
-          <div><canvas id="meteor-location"></canvas></div>
-          <div><canvas id="mass-line"></canvas></div>
-
-
+          <div class="chart-container classes-chart"><canvas id="classes" style="box-sizing: unset"></canvas></div>
+          <div class="chart-container timeline-chart"><canvas id="timeline" style="box-sizing: unset"></canvas></div>
+          <div class="chart-container mass-chart"><canvas id="mass-line" style="box-sizing: unset"></canvas></div>
         </div>
     </main>
     <footer>
-      <img src="/images/mountain_silhouette.svg"/>
+      <img src="images/mountain_silhouette.svg"/>
       <div class="copyright">
         <p>Copyright &copy; <span id="currentyear"></span></p>
         <p>Macy Whitney, BYU-Idaho, WDD 330</p>
@@ -71,8 +68,6 @@
     </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-    <!-- <script type="module" src="https://unpkg.com/chart.js@4.2.1/dist/chart.umd.js" integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-    <!-- <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin="">

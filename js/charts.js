@@ -121,12 +121,13 @@ export default class Charts {
           {
             type: 'bar',
             options: {
-                animation: false,
-                plugins: {
-                  legend: {
-                    display: true
-                  },
-                }
+              responsive: true,
+              animation: false,
+              plugins: {
+                legend: {
+                display: true
+                },
+              }
             },
             data: {
               labels: barChartData.map(row => row.year),
@@ -167,12 +168,13 @@ export default class Charts {
           {
             type: 'pie',
             options: {
-                animation: false,
-                plugins: {
-                  legend: {
-                    display: false
-                  },
-                }
+              responsive: true,
+              animation: false,
+              plugins: {
+                legend: {
+                display: false
+                },
+              },
             },
             data: {
               labels: pieChartData.map(row => row.recclass),

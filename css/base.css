@@ -177,12 +177,17 @@ h1 {
 }
 
 /* Charts */
-#meteorite-charts {
-    display: grid;
+.chart-container {
+    margin: 0 auto;
+    max-width: 400px;
+}
+.timeline-chart {
+    overflow-x: scroll;
 }
 canvas {
     padding: 2em;
-    max-width: 600px
+    max-width: 600px;
+    box-sizing: unset;
 }
 
 /* Footer */
